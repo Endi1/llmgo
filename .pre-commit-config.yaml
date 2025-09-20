@@ -1,0 +1,20 @@
+repos:
+  # Go-specific hooks
+  - repo: https://github.com/dnephin/pre-commit-golang
+    rev: v0.5.1
+    hooks:
+      # Go fmt - formats Go code
+      - id: go-fmt
+      
+      # Go imports - organizes imports
+      - id: go-imports
+      
+      # Go mod tidy - ensures go.mod matches the source code
+      - id: go-mod-tidy
+      
+      # Go cyclo - checks cyclomatic complexity
+      - id: go-cyclo
+        args: [-over=10]
+      
+      # Go critic - comprehensive Go source code linter
+      - id: go-critic
