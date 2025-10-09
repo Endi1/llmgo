@@ -3,10 +3,9 @@ package gemini
 import (
 	"context"
 	"fmt"
-	"log"
-
 	"github.com/endi1/llmgo/client"
 	"google.golang.org/genai"
+	"log"
 )
 
 type GeminiClient struct {
@@ -53,7 +52,7 @@ func (geminiClient *GeminiClient) RunTools(ctx context.Context, model string, me
 			Parameters: &genai.Schema{
 				Required:   tool.Params().Required,
 				Properties: properties,
-				Type: genai.TypeObject,
+				Type:       genai.TypeObject,
 			},
 		})
 	}
@@ -87,7 +86,6 @@ func (geminiClient *GeminiClient) RunTools(ctx context.Context, model string, me
 					return tool.Call(ctx, functionCall.Args)
 				}
 			}
-
 
 		}
 	}
